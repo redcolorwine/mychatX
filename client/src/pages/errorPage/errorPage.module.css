@@ -1,0 +1,110 @@
+.errorPage {
+    font-family: 'Century Gothic';
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+.header {
+    background-color: rgb(0, 176, 255);
+    padding: 10px;
+    margin: 0;
+    border: 1px solid palevioletred;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.header h4 {
+    padding: 0;
+    margin: 0;
+    color: azure;
+    font-size: 16pt;
+}
+
+.header p span {
+    color: rgb(213, 0, 249);
+    font-weight: 900;
+}
+
+.chatWindow {
+    height: 700px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(24, 39, 71);
+    border: 1px solid palevioletred;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 10px;
+}
+
+.chatWindow h1 {
+    color: rgb(185, 60, 60);
+    font-family: consolas;
+}
+
+.chatWindow h4 {
+    font-family: consolas;
+    color: violet;
+    font-size: 20pt;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.addMessage {
+
+    margin: 10px auto 0px auto;
+    width: 80%;
+    display: flex;
+    min-height: 50px;
+}
+
+.addMessage input {
+    font-family: 'Century Gothic';
+    width: 80%;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.addMessage button {
+    font-family: 'Century Gothic';
+    width: 20%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(41, 121, 255);
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.addMessage button:active {
+    transform: translate(5px, 5px);
+}
+
+.auth {
+    display: flex;
+    margin: 10px 0px 0px 0px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.auth h4 {
+    color: rgb(255, 255, 9);
+    font-family: consolas;
+}
+
+.auth button {
+    background-color: rgb(213, 0, 249);
+    border: 1px solid rgb(213, 0, 249);
+    border-radius: 5px;
+    color: white;
+    font-family: consolas;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+.auth button:active {
+    transform: translate(5px, 5px);
+}

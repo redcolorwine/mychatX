@@ -1,0 +1,110 @@
+.authPage {
+    font-family: 'Century Gothic';
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+.header {
+    background-color: rgb(130, 103, 199);
+    padding: 10px;
+    margin: 0;
+    border: 1px solid rgb(163, 162, 162);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.header h4 {
+    padding: 0;
+    margin: 0;
+    color: azure;
+    font-size: 16pt;
+}
+
+.header p span {
+    color: rgb(222, 218, 223);
+    font-weight: 900;
+}
+
+.authWindow {
+    position: relative;
+    height: 700px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(10, 10, 18);
+    border: 1px solid rgb(126, 123, 124);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 10px;
+    color: white;
+}
+
+.authWindow h1 {
+    color: rgb(255, 255, 255);
+    font-family: consolas;
+}
+
+.authWindow h4 {
+    font-family: consolas;
+    color: violet;
+    font-size: 20pt;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.authWindow form {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.authWindow input {
+    margin: 20px auto 20px auto;
+    display: block;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: rgb(10, 10, 18);
+    color: white;
+    border: 1px solid blue;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 30px rgb(10, 10, 18) inset !important;
+}
+
+.authWindow form button {
+    background-color: rgb(130, 103, 199);
+    color: white;
+    padding: 5px;
+    margin-top: 20px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+}
+
+
+.authWindow p a {
+    color: rgb(0, 176, 255);
+    font-weight: 900;
+}
+
+.error {
+    margin-top: 10px;
+    border: 1px solid red;
+    color: red;
+}
+
+.error span {
+    color: rgb(0, 176, 255);
+
+}

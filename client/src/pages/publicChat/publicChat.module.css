@@ -1,0 +1,126 @@
+.publicChat {
+    font-family: 'Century Gothic';
+    width: 1000px;
+    margin: 0 auto;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.header {
+    background-color: rgb(46, 35, 73);
+    padding: 10px;
+    margin: 0;
+    border: 1px solid palevioletred;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.header h4 {
+    padding: 0;
+    margin: 0;
+    color: azure;
+    font-size: 16pt;
+}
+
+.header p span {
+    color: rgb(213, 0, 249);
+    font-weight: 900;
+}
+
+.chatWindow {
+    height: 700px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(10, 10, 18);
+    border: 1px solid palevioletred;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0.2rem;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    width: 0.1rem;
+    border-radius: 1rem;
+}
+
+.emoji {
+    position: relative;
+}
+
+.emoji svg {
+    font-size: 1.5rem;
+    color: yellow;
+    cursor: pointer;
+}
+
+.emoji .emoji-picker-react {
+    position: absolute;
+    top: -350px;
+}
+
+.addMessage {
+
+    margin: 10px auto 0px auto;
+    width: 80%;
+    display: flex;
+    min-height: 50px;
+}
+
+.addMessage input {
+    font-family: 'Century Gothic';
+    width: 80%;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.addMessage button {
+    font-family: 'Century Gothic';
+    width: 20%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(41, 121, 255);
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.addMessage button:active {
+    transform: translate(5px, 5px);
+}
+
+.auth {
+    display: flex;
+    margin: 10px 0px 0px 0px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.auth h4 {
+    color: rgb(255, 255, 9);
+    font-family: consolas;
+}
+
+.auth button {
+    background-color: rgb(213, 0, 249);
+    border: 1px solid rgb(213, 0, 249);
+    border-radius: 5px;
+    color: white;
+    font-family: consolas;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+.auth button:active {
+    transform: translate(5px, 5px);
+}
