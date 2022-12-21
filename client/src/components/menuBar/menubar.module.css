@@ -1,0 +1,36 @@
+.menubar {
+    grid-area: m;
+
+    background-color: rgb(9, 8, 26);
+}
+
+.menubar nav {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menubar nav li a {
+    text-decoration: none;
+    display: block;
+    /* height: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Century Gothic';
+    font-weight: 800;
+    font-size: 15pt;
+    color: white;
+}
+
+.menubar nav li {
+    position: relative;
+    list-style: none;
+    background-color: rgb(62, 60, 80);
+    height: 10%;
+    border-radius: 2px;
+}

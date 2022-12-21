@@ -16,6 +16,9 @@ let mapDispatchToProps = (dispatch) => {
         logout: () => {
             dispatch(logoutThunk());
         },
+        setAuthUserData: (currentUser) => {
+            dispatch(setAuthUserData(currentUser));
+        }
     }
 }
 

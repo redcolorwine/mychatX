@@ -30,5 +30,33 @@ export const chatAPI = {
     addMessage(message, img, publication_date, user_id) {
         return instance.post('public/messages', { message, img, publication_date, user_id })
     },
-
+    getUsers() {
+        return instance.get('users/getusers').then(response => {
+            return response;
+        })
+    },
+    getUserByNickname(nickname) {
+        return instance.post('users/getuser', { nickname }).then(response => {
+            return response;
+        })
+    },
+    getFriends(user_id) {
+        return instance.post('users/getfriends', { user_id }).then(response => {
+            return response;
+        })
+    },
+    addFriend(friend_id, user_id) {
+        return instance.post('users/addfriend', { friend_id, user_id }).then(response => {
+            return response;
+        })
+    },
+    getFriendsAndUsers(user_id) {
+        return axios.all([
+            instance.post('users/getfriends', { user_id }),
+            instance.get('users/getusers')
+        ]).then(response => {
+            return response;
+        })
+    },
+   
 }

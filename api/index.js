@@ -4,6 +4,7 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 const express = require('express');
 const publicChatRouter = require('./routes/publicChat');
+const usersRouter = require('./routes/users');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const authRouter = require('./routes/auth');
@@ -28,6 +29,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use('/api/public', publicChatRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/users', usersRouter);
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -58,7 +60,6 @@ io.on('connection', async (socket) => {
         ]
         db.query(q, [values], (err, data) => {
             if (err) console.log(err);
-
             console.log('Сообщение отправлено');
         })
     });

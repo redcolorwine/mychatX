@@ -1,0 +1,56 @@
+.userItem {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    background-color: rgb(62, 60, 80);
+}
+
+.userItem img {
+    height: 50px;
+    width: 50px;
+}
+
+.aboutUser {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    font-weight: 800;
+}
+
+.uButtons {
+    display: flex;
+    gap: 20px;
+    margin-right: 5px;
+    align-items: center;
+}
+
+.uButtons button {
+    height: 60%;
+    transition: 0.5s;
+}
+
+.uButtons span {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 61, 0);
+    font-size: 10pt;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.uButtons button:active {
+    transform: translate(5%, 5%);
+}
+
+.addFriend {
+    background-color: teal;
+    border: 1px solid teal;
+    border-radius: 2px;
+    color: white;
+}
+
+.writeMessage {
+    background-color: rgb(57, 21, 163);
+    border: 1px solid rgb(57, 21, 163);
+    border-radius: 2px;
+    color: white;
+}

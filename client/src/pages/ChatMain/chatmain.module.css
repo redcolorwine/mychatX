@@ -1,0 +1,14 @@
+.chatmain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-areas:
+        "h h h"
+        "m c c"
+        "m c c"
+    ;
+    grid-template-columns: 250px 350px 350px;
+    grid-template-rows: 150px 320px 320px;
+}

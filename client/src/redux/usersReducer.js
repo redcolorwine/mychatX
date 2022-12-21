@@ -10,6 +10,11 @@ let initialState = {
     loginError: null,
     isAuth: false,
     currentUser: null,
+    users: null,
+    foundUser: null,
+    friends: null,
+    friendResp: null,
+    isFriendsLoading: true,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -38,6 +43,36 @@ const usersReducer = (state = initialState, action) => {
                 isAuth: action.isAuth
             }
         }
+        case 'SET_FOUND_USER': {
+            return {
+                ...state,
+                foundUser: action.foundUser
+            }
+        }
+        case 'SET_USERS': {
+            return {
+                ...state,
+                users: action.users
+            }
+        }
+        case 'SET_FRIENDS': {
+            return {
+                ...state,
+                friends: action.friends
+            }
+        }
+        case 'SET_FRIEND_RESP': {
+            return {
+                ...state,
+                friendResp: action.friendResp
+            }
+        }
+        case 'SET_IS_FRIENDS_LOADING': {
+            return {
+                ...state,
+                isFriendsLoading: action.isFriendsLoading
+            }
+        }
         default: return state;
     }
 }
@@ -58,7 +93,7 @@ export const loginThunk = (nickname, password) => {
                 dispatch(setAuth(true));
                 localStorage.setItem("user", JSON.stringify(response.data));
                 dispatch(setAuthUserData(response.data));
-               
+
             }
         }).catch(err => {
             dispatch(setLoginError(err.response.data));
@@ -71,6 +106,59 @@ export const logoutThunk = () => {
             localStorage.clear();
             dispatch(setAuth(false));
             dispatch(setAuthUserData(''));
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+}
+export const setUsersThunk = () => {
+    return (dispatch) => {
+        chatAPI.getUsers().then(response => {
+            dispatch(setUsers(response.data));
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+}
+export const setFoundUserThunk = (nickname) => {
+
+    return (dispatch) => {
+
+        chatAPI.getUserByNickname(nickname).then(response => {
+            dispatch(setFoundUser(response.data));
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+}
+export const setFriendsThunk = (user_id) => {
+
+    return (dispatch) => {
+
+        chatAPI.getFriends(user_id).then(response => {
+
+            dispatch(setFriends(response.data));
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+}
+export const setFriendsAndUsers = (user_id) => {
+    return (dispatch) => {
+        chatAPI.getFriendsAndUsers(user_id).then(response => {
+            dispatch(setUsers(response[1].data));
+            dispatch(setFriends(response[0].data));
+            dispatch(setIsFriendsLoading(false));
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+}
+export const addFriendThunk = (friend_id, user_id) => {
+    return (dispatch) => {
+        chatAPI.addFriend(friend_id, user_id).then(response => {
+            debugger;
+            dispatch(setFriendResp(response.data));
         }).catch(err => {
             console.log(err.response.data);
         })
@@ -100,5 +188,34 @@ export const setAuthUserData = (currentUser) => {
         currentUser
     }
 }
-
+export const setUsers = (users) => {
+    return {
+        type: "SET_USERS",
+        users
+    }
+}
+export const setFoundUser = (foundUser) => {
+    return {
+        type: "SET_FOUND_USER",
+        foundUser
+    }
+}
+export const setFriends = (friends) => {
+    return {
+        type: 'SET_FRIENDS',
+        friends
+    }
+}
+export const setFriendResp = (friendResp) => {
+    return {
+        type: 'SET_FRIEND_RESP',
+        friendResp
+    }
+}
+export const setIsFriendsLoading = (isFriendsLoading) => {
+    return {
+        type: 'SET_IS_FRIENDS_LOADING',
+        isFriendsLoading
+    }
+}
 export default usersReducer;

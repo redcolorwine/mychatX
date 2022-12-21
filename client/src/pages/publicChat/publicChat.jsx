@@ -9,6 +9,7 @@ import { BsEmojiSmileFill } from 'react-icons/bs';
 import uphoto from './../../media/user.png';
 import me from './../../media/1.png';
 import socket from '../../socket/socket';
+import HeaderContainer from '../../components/header/headerContainer';
 const PublicChat = (props) => {
 
     const host = 'http://localhost:8000';
@@ -32,16 +33,13 @@ const PublicChat = (props) => {
         })
         if (localStorage.getItem('user') !== null) {
             props.setAuthUserData(JSON.parse(localStorage.getItem("user")));
-
-
-
         }
         props.getMessages();
         //клиент будет слушать с сервера
 
     }, [servData])
-//[props.resp]
-   
+    //[props.resp]
+
     const handleClick = (e) => {
         e.preventDefault();
         // props.addMessage(message, 'any.pang', moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), props.currentUser.id);
@@ -74,33 +72,22 @@ const PublicChat = (props) => {
 
         return (
             <div className={rstyle.publicChat}>
-                <div className={rstyle.header}>
-                    <h4>Public Chat</h4>
-                    <div className={rstyle.auth}>
-                        {props.currentUser
-                            ? <><h4>{props.currentUser.nickname}</h4>
-                                <button onClick={() => { props.logout() }}>Выйти</button></>
-                            : <button>Авторизоваться</button>
-                        }
 
-                    </div>
-                    <p><span>{moment(Date.now()).format("DD.MM.YYYY")}</span></p>
-                </div>
                 <div className={rstyle.chatWindow}>
 
                     {messagesFromApi}
                     <div className={rstyle.addMessage}>
-
-
-                        <input type="text" placeholder='Сообщение' value={message} onChange={(e) => setMessage(e.target.value)} />
-
-                        <button className={rstyle.submit} onClick={handleClick}><IoMdSend /></button>
                         <div className={rstyle.emoji}>
                             <BsEmojiSmileFill onClick={handleShowEmoji} />
                             {
                                 showEmoji && <Picker onEmojiClick={handleEmojiClick} />
                             }
                         </div>
+
+                        <input type="text" placeholder='write a message' value={message} onChange={(e) => setMessage(e.target.value)} />
+
+                        <button className={rstyle.submit} onClick={handleClick}><IoMdSend /></button>
+
                     </div>
                 </div>
 
